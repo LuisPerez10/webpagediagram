@@ -1,0 +1,82 @@
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div>
+<!-- <div class="row" *ngIf="!cargando"> -->
+<div class='navbarf '>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+
+        <a class="navbar-brand" [routerLink]="['/dashboard/documents']">
+            <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> {{document?.nombre}}
+        </a>
+        <a class="btn  " role="button">
+            <i class="fa fa-cloud-upload"></i>
+        </a>
+        <div class="dropdown ">
+            <a class="btn  " role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a (click)="descargarSVG()" class="dropdown-item">Exportar SVG</a>
+                <a (click)="descargarPNG()" class="dropdown-item">Exportar PNG</a>
+                <a (click)="descargarJPG()" class="dropdown-item">Exportar JPG</a>
+                <a (click)="imprimir()" class="dropdown-item">Imprimir</a>
+                <div class="dropdown-divider"></div>
+                <a [routerLink]="['/dashboard/documents']" type="button" class="dropdown-item">Salir</a>
+            </div>
+        </div>
+    </nav>
+
+</div>
+<div class='row navbarfr '>
+
+    <Button (click)="guardarCambios()" Style="background: #563D7C; color: white;" class="btn  waves-effect waves-light marginleft " data-toggle="tooltip" title="Enlace de invitacion a la sala">
+      <i class="fa fa-cloud-upload  "></i>
+      Guardar
+    </Button>
+    <Button (click)="copiarClipBoard()" class="btn  waves-effect waves-light btn-secondary marginleft " data-toggle="tooltip" title="Enlace de invitacion a la sala">
+      <i class="fa fa-unlink"></i>
+      Invitar
+    </Button>
+
+    <a class="right-side-toggle btn waves-effect waves-light btn-secondary marginleft" data-toggle="tooltip" title="Char grupal">
+        <i class="fa fa-wechat "></i>
+    </a>
+</div>
+<div class='row navbarfbr '>
+
+
+    <Button type="button" (click)="this.mostrarOverView()" class="btn btn-secondary m-r-20" data-toggle="button" data-more="#sh" aria-pressed="false">
+        <i class="fa fa-eye-slash text" aria-hidden="true"></i>
+        <i class="fa fa-eye text-active" aria-hidden="true"></i>
+        </Button>
+
+
+</div>
+
+
+<a id="{{usuario.id}}" *ngFor="let usuario of usuariosActivosObs | async ; let i = index " [ngStyle]="getColor(i)" style="top: -50px; position: fixed;z-index: 1500;">
+    <i class="mdi mdi-cursor-default-outline">{{usuario.nombre.substring(0,8)}}</i>
+</a>
+
+
+<!-- <div class="navbarfbr"> -->
+
+<app-lista-usuarios></app-lista-usuarios>
+
+<!-- </div> -->
+
+<div *ngIf="!cargando">
+
+    <app-gojs [iddoc]="id" (mouseEvent)="onMouseEvent($event)"></app-gojs>
+
+</div>
+
+<!-- </div> -->

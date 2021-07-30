@@ -1,0 +1,51 @@
+<div class="right-sidebar" style="top: 0px;">
+    <div class="">
+        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+        <div class="r-panel-body" style="overflow: hidden;">
+            <ul class=" m-t-20 chatonline">
+                <li><b>Participantes</b></li>
+                <li *ngFor="let usuario of usuariosActivosObs | async ;let i = index">
+                    <div class="row">
+                        <div class="col-3">
+                            <button type="button" [ngStyle]="getColor(i)" style="color:white" class="btn btn-circle">{{usuario.nombre.substring(0,1)}}</button>
+                            <!-- <img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> -->
+                        </div>
+                        <div class="col-8">
+                            <div>
+                                <span>{{usuario.nombre.substring(0,10)}}<br> <small class="text-success">online</small></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+            <div class="m-t-20 row" style="overflow:auto; height: 600px;">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="chat-main-box">
+                            <app-chat></app-chat>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <ul class="list-group">
+    <li class="list-group-item" *ngFor="let usuario of usuariosActivosObs | async">
+        {{ usuario.nombre }}
+        <span class="badge badge-primary">
+      {{ usuario.sala }}
+    </span>
+        <br>
+        <span class="badge badge-info">
+      {{ usuario.id }}
+    </span>
+    </li>
+</ul> -->

@@ -1,0 +1,65 @@
+<div class="chat-right-aside">
+    <!-- <div class="chat-main-header">
+        <div class="p-20 b-b">
+            <h3 class="box-title">Chat Message</h3>
+        </div>
+    </div> -->
+    <div class="chat-rbox ">
+        <ul id="chat-mensajes" class=" chat-list p-20">
+            <!--chat Row -->
+            <li *ngFor="let msg of mensajes" [ngClass]="{'reverse': msg.de ==='Yo'} " style="margin-top:5px">
+                <!-- <div class="chat-img"><img src="../assets/images/users/1.jpg" alt="user" /></div> -->
+                <div class="chat-content" style="overflow: hidden; width: 100%;">
+                    <h5>{{msg.de}}</h5>
+                    <div class="box" [ngClass]=" { 'bg-light-info': msg.de !=='Yo' , 'bg-light-inverse' : msg.de==='Yo' } ">{{msg.cuerpo}}</div>
+                    <!-- <div class="chat-time "><small>10:56 am</small></div> -->
+                </div>
+
+            </li>
+            <!--chat Row -->
+
+            <!--chat Row -->
+            <!-- <li *ngFor="let mmsg of mismensajes " class="reverse ">
+                <div class="chat-content ">
+                    <h5>YO</h5>
+                    <div class="box bg-light-inverse ">{{mmsg.cuerpo}}</div>
+                </div>
+                <div class="chat-img "><img src="../assets/images/users/5.jpg " alt="user " /></div>
+                <div class="chat-time ">10:57 am</div>
+            </li> -->
+
+            <!--chat Row -->
+        </ul>
+    </div>
+    <div class="card-body b-t" style="bottom: 0; position: fixed; overflow: hidden;">
+        <form (ngSubmit)="enviar() ">
+            <div class="row ">
+                <div class="col-8 ">
+                    <input type="text " name="texto " [(ngModel)]="texto " placeholder="Mensaje... " autofocus autocomplete="false" class="form-control b-0 chat-input ">
+                </div>
+                <div class="col-4 text-right ">
+                    <button type="button " class="btn btn-info btn-circle btn-lg "><i class="fa fa-paper-plane-o "></i> </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--
+<h1>Mensajes</h1>
+<hr>
+
+<div id="chat-mensajes ">
+    <li class="list-group-item " *ngFor="let msg of mensajes ">
+        {{ msg.de }}: {{ msg.cuerpo }}
+    </li>
+</div>
+
+
+
+<form (ngSubmit)="enviar() ">
+
+    <input type="text " [(ngModel)]="texto " class="form-control chat-input " name="texto " placeholder="Mensaje... " autofocus autocomplete="off ">
+
+
+</form>
+ -->

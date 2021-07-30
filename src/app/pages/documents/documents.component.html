@@ -1,0 +1,45 @@
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <div class="col-12">
+
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div>
+<div class="row" *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row m-b-15">
+                    <div class="col text-left"><button (click)="abrirSweetAlert()" class="btn btn-primary"><i class="fa  fa-plus "></i> Nuevo </button></div>
+                </div>
+                <div> </div>
+                <div class="row " *ngIf="documents">
+                    <div class="card-deck col-lg-3 col-md-4 col-sm-6 col-xs-6 animated fadeIn fast" *ngFor="let doc of documents ">
+
+                        <div class="card" style="box-shadow: 2px 2px 10px #aaa;">
+                            <div class="card-body ">
+                                <h5 class="card-title ">{{doc.nombre}}</h5>
+                                <h6 class="card-subtitle ">Nombre </h6>
+                                <!-- <img [src]="doc.imagenUrl" class="img-thumbnail " /> -->
+                                <img [src]="doc.img | imagen:[ 'document', 'img',doc._id]" class="img-thumbnail" Style="width: 100%; background: #F0F0F0;" />
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col text-right">
+                                        <a type="button" (click)="copiarClipBoard(doc._id)" class="btn btn-outline-secondary"><i class="fa fa-unlink"></i>Invitar</a>
+                                        <a [routerLink]="['/diagram', doc._id ]" type="button" target="_blank" class="btn m-l-10  btn-outline-success"> Abrir</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

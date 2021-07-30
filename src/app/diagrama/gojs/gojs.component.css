@@ -1,0 +1,54 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    height: auto !important;
+}
+
+.myDiagramDiv {
+    background: rgb(240, 240, 240);
+    width: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /* height: 80px; */
+    /* min-height: 100%; */
+    /* height: auto; */
+    z-index: 0;
+    /* border: 1px solid black; */
+}
+
+.myPaletteDiv {
+    position: fixed;
+    top: 15%;
+    left: 20px;
+    background: white;
+    /* border: 1px solid navy; */
+    box-shadow: 10 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width: 125px;
+    height: 300px;
+    z-index: 1;
+}
+
+.myOverviewDiv {
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    width: 180px;
+    height: 150px;
+    background: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.box {
+    border: solid 1px black;
+    background: whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.clear {
+    clear: both;
+}
