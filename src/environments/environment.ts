@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   base_url: 'http://localhost:3000/api',
-  s3_url:'https://eventosbucket.s3.amazonaws.com'
+  s3_url:''
 };
 
 /*
